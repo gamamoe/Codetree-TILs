@@ -24,30 +24,37 @@ def calculate_block_score(coordinates: Sequence[Tuple[int, int]]) -> int:
 
 
 answer = 0
+checked = set()
 for row in range(n):
     for col in range(m):
-        coordinates = [(row, col), (row + 1, col), (row + 1, col + 1)]
-        if is_valid_block(coordinates):
+        coordinates = ((row, col), (row + 1, col), (row + 1, col + 1))
+        if is_valid_block(coordinates) and coordinates not in checked:
             answer = max(answer, calculate_block_score(coordinates))
+            checked.add(coordinates)
 
-        coordinates = [(row, col), (row + 1, col), (row + 1, col - 1)]
-        if is_valid_block(coordinates):
+        coordinates = ((row, col), (row + 1, col), (row + 1, col - 1))
+        if is_valid_block(coordinates) and coordinates not in checked:
             answer = max(answer, calculate_block_score(coordinates))
+            checked.add(coordinates)
 
-        coordinates = [(row, col), (row + 1, col), (row, col + 1)]
-        if is_valid_block(coordinates):
+        coordinates = ((row, col), (row + 1, col), (row, col + 1))
+        if is_valid_block(coordinates) and coordinates not in checked:
             answer = max(answer, calculate_block_score(coordinates))
+            checked.add(coordinates)
 
-        coordinates = [(row, col), (row + 1, col), (row, col - 1)]
-        if is_valid_block(coordinates):
+        coordinates = ((row, col), (row + 1, col), (row, col - 1))
+        if is_valid_block(coordinates) and coordinates not in checked:
             answer = max(answer, calculate_block_score(coordinates))
+            checked.add(coordinates)
 
-        coordinates = [(row, col), (row, col + 1), (row, col + 2)]
-        if is_valid_block(coordinates):
+        coordinates = ((row, col), (row, col + 1), (row, col + 2))
+        if is_valid_block(coordinates) and coordinates not in checked:
             answer = max(answer, calculate_block_score(coordinates))
+            checked.add(coordinates)
 
-        coordinates = [(row, col), (row + 1, col), (row + 2, col)]
-        if is_valid_block(coordinates):
+        coordinates = ((row, col), (row + 1, col), (row + 2, col))
+        if is_valid_block(coordinates) and coordinates not in checked:
             answer = max(answer, calculate_block_score(coordinates))
+            checked.add(coordinates)
 
 print(answer)
