@@ -32,8 +32,10 @@ def print_season(y: int, m: int, d: int) -> str:
         return 'Summer'
     elif m in {9, 10, 11}:
         return 'Fall'
-    else:
+    elif m in {12, 1, 2}:
         return 'Winter'
+    else:
+        return '-1'
 
 year, month, day = [int(x) for x in sys.stdin.readline().split()]
 print(print_season(year, month, day))
