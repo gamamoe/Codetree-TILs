@@ -1,7 +1,7 @@
 import sys
 
 def is_leap_year(y: int) -> bool:
-    return y % 4 == 0 or (y % 4 == 0 and y % 100 == 0 and y % 400 == 0)
+    return (y % 4 == 0 and y % 100 != 0) or (y % 4 == 0 and y % 100 == 0 and y % 400 == 0)
 
 
 def print_season(y: int, m: int, d: int) -> str:
